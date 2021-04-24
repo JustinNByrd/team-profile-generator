@@ -57,7 +57,35 @@ function getManager() {
         .then((response) => {
             const manager = new Manager(response.managerName, response.empID, response.email, response.officeNum);
             empArr.push(manager);
-        });
+            showEmpMenu();
+        })
+}
+
+function showEmpMenu() {
+    const question = [
+        {
+            type: 'list',
+            message: 'What would you like to do next?',
+            choices: ['Add an Engineer', 'Add an Intern', 'Finished'],
+            name: 'menuChoice'
+        }
+    ]
+
+    inquirer
+        .prompt(question)
+        .then((answer) => {
+            switch (answer.menuChoice) {
+                case 'Add an Engineer':
+                    console.log(answer.menuChoice);
+                    break;
+                case 'Add an Intern':
+                    console.log(answer.menuChoice);
+                    break;
+                case 'Finished':
+                    console.log(answer.menuChoice);
+                    break;
+            }
+        })
 }
 
 getTeamName();
