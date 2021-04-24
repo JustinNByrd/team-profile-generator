@@ -19,20 +19,20 @@ function generateHTML(teamName, empArr) {
 <h3>${emp.name}</h3>
 <h4>${emp.constructor.name}</h4>
 <p>ID: ${emp.empID}</p>
-<p>Email: <a href="mailto:${emp.email}">${emp.email}</p>`
+<p>Email: <a href="mailto:${emp.email}">${emp.email}</a></p>\n`;
 
         switch (emp.constructor.name) {
             case 'Manager':
                 generatedHTML += `<p>Office: ${emp.officeNum}</p>`;
                 break;
             case 'Engineer':
-                generatedHTML += `<p>GitHub: <a href="https://github.com/${emp.gitHubUsername}">${emp.gitHubUsername}</a></p>`;
+                generatedHTML += `<p>GitHub: <a href="https://github.com/${emp.gitHubUsername}" target="_blank">${emp.gitHubUsername}</a></p>`;
                 break;
             case 'Intern':
                 generatedHTML += `<p>School: ${emp.school}</p>`;
                 break;
         }
-        generatedHTML += `</div>`;
+        generatedHTML += `</div>\n`;
     });
 
     generatedHTML += `</main>
