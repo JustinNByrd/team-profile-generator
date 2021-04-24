@@ -6,10 +6,12 @@ const fs = require('fs');
 const Intern = require('./utils/intern');
 const Engineer = require('./utils/engineer');
 const Manager = require('./utils/manager');
+const generateHTML = require('./utils/generateHTML');
 
 // global vars
 const empArr = [];
-var teamName;
+let teamName;
+let outputFile = './output/index.html';
 
 function getTeamName() {
     const question = [
@@ -82,7 +84,10 @@ function showEmpMenu() {
                     addIntern();
                     break;
                 case 'Finished':
-                    console.log(answer.menuChoice);
+                    let generatedHTML = generateHTML(teamName, empArr);
+                    fs.writeFile(outputFile, generatedHTML, (err) =>
+                        err ? console.error(err) : console.log('Success! Your results are in the ./output directory.')
+                    );
                     break;
             }
         })
