@@ -84,14 +84,19 @@ function showEmpMenu() {
                     addIntern();
                     break;
                 case 'Finished':
-                    let generatedHTML = generateHTML(teamName, empArr);
-                    fs.writeFile(outputFile, generatedHTML, (err) =>
-                        err ? console.error(err) : console.log('Success! Your results are in the ./output directory.')
-                    );
+                    const generatedHTML = generateHTML(teamName, empArr);
+                    writeToFile(outputFile, generatedHTML);
                     break;
             }
         })
 }
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.error(err) : console.log('Success! Your generated results are in the /output directory.')
+    );
+}
+
 
 function addIntern() {
     const questions = [
