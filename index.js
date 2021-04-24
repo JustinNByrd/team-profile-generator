@@ -69,14 +69,14 @@ function showEmpMenu() {
             choices: ['Add an Engineer', 'Add an Intern', 'Finished'],
             name: 'menuChoice'
         }
-    ]
+    ];
 
     inquirer
         .prompt(question)
         .then((answer) => {
             switch (answer.menuChoice) {
                 case 'Add an Engineer':
-                    console.log(answer.menuChoice);
+                    addEngineer();
                     break;
                 case 'Add an Intern':
                     addIntern();
@@ -110,7 +110,7 @@ function addIntern() {
             message: "What is the intern's school?",
             name: "internSchool"
         }
-    ]
+    ];
 
     inquirer
         .prompt(questions)
@@ -118,7 +118,41 @@ function addIntern() {
             const intern = new Intern(answers.internName, answers.internEmpID, answers.internEmail, answers.internSchool);
             empArr.push(intern);
             showEmpMenu();
-        })
+        });
+}
+
+function addEngineer() {
+    questions = [
+        {
+            type: 'input',
+            message: "What is the Engineer's name?",
+            name: 'engineerName'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's employee ID?",
+            name: 'engineerEmpID'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's email address?",
+            name: 'engineerEmail'
+        },
+        {
+            type: 'input',
+            message: "What is the Engineer's gitHub username?",
+            name: 'engineerGitHubUsername'
+        }
+    ];
+
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerEmpID, answers.engineerEmail, answers.engineerGitHubUsername);
+            empArr.push(engineer);
+            showEmpMenu();
+        });
+
 }
 
 getTeamName();
