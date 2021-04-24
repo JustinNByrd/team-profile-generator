@@ -79,12 +79,45 @@ function showEmpMenu() {
                     console.log(answer.menuChoice);
                     break;
                 case 'Add an Intern':
-                    console.log(answer.menuChoice);
+                    addIntern();
                     break;
                 case 'Finished':
                     console.log(answer.menuChoice);
                     break;
             }
+        })
+}
+
+function addIntern() {
+    const questions = [
+        {
+            type: 'input',
+            message: "What is the intern's name?",
+            name: "internName"
+        },
+        {
+            type: 'input',
+            message: "What is the intern's employee ID?",
+            name: "internEmpID"
+        },
+        {
+            type: 'input',
+            message: "What is the intern's email address?",
+            name: "internEmail"
+        },
+        {
+            type: 'input',
+            message: "What is the intern's school?",
+            name: "internSchool"
+        }
+    ]
+
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            const intern = new Intern(answers.internName, answers.internEmpID, answers.internEmail, answers.internSchool);
+            empArr.push(intern);
+            showEmpMenu();
         })
 }
 
