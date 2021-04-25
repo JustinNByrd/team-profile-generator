@@ -19,6 +19,8 @@ Then all you have to do is answer the prompted questions.
 
 [Walkthrough video](https://drive.google.com/file/d/1u6XEy0SfV1h4O1V9Oor0u9nNElPAkoo8/view?usp=sharing)
 
+[Sample output from Walkthrough Video](https://drive.google.com/drive/folders/1dsPo8c7x6SluF6wnB1fMqDEJen61wOC-?usp=sharing)
+
 ## License
 
 Copyright &copy; 2021 Justin Byrd
