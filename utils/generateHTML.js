@@ -5,6 +5,7 @@ function generateHTML(teamName, empArr) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Team Profile</title>
 </head>
 <body>
@@ -15,11 +16,11 @@ function generateHTML(teamName, empArr) {
 `;
 
     empArr.forEach(emp => {
-        generatedHTML += `<div class="${emp.constructor.name.toLowerCase()}">
-<h3>${emp.name}</h3>
-<h4>${emp.constructor.name}</h4>
-<p>ID: ${emp.empID}</p>
-<p>Email: <a href="mailto:${emp.email}">${emp.email}</a></p>\n`;
+        generatedHTML += `<div class="${emp.constructor.name.toLowerCase()}  flex-container">
+<h3>${emp.name}</h3><br>
+<h3>${emp.constructor.name}</h3><br>
+<p>ID: ${emp.empID}</p><br>
+<p>Email: <a href="mailto:${emp.email}">${emp.email}</a></p><br>\n`;
 
         switch (emp.constructor.name) {
             case 'Manager':
