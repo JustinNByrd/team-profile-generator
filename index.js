@@ -13,6 +13,7 @@ const empArr = [];
 let teamName;
 let outputFile = './output/index.html';
 
+// get team name and set it to global variable, then call getManager()
 function getTeamName() {
     const question = [
         {
@@ -30,6 +31,7 @@ function getTeamName() {
         })
 }
 
+// get manager info, create an instance of Manager and push it on global array. then call showEmpMenu()
 function getManager() {
     const questions = [
         {
@@ -63,6 +65,7 @@ function getManager() {
         })
 }
 
+// show menu and call appropriate function based on user input. if user selects Finished, generate the HTML and save it to file
 function showEmpMenu() {
     const question = [
         {
@@ -91,13 +94,14 @@ function showEmpMenu() {
         })
 }
 
+// write generated HTML to file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
         err ? console.error(err) : console.log('Success! Your generated results are in the /output directory.')
     );
 }
 
-
+// get intern info, create an Intern instance and push it on global array. then call showEmpMenu()
 function addIntern() {
     const questions = [
         {
@@ -131,6 +135,7 @@ function addIntern() {
         });
 }
 
+// get engineer info, create an instance of Engineer and push it on global array.  then call showEmpMenu()
 function addEngineer() {
     questions = [
         {
@@ -165,4 +170,5 @@ function addEngineer() {
 
 }
 
+// call getTeam to start processing user input
 getTeamName();
