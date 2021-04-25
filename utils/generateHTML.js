@@ -12,25 +12,25 @@ function generateHTML(teamName, empArr) {
 <header>
     <h1>${teamName}</h1>
 </header>
-<main>
+<main class="flex-container">
 `;
 
     empArr.forEach(emp => {
-        generatedHTML += `<div class="${emp.constructor.name.toLowerCase()}  flex-container">
-<h3>${emp.name}</h3><br>
-<h3>${emp.constructor.name}</h3><br>
+        generatedHTML += `<div class="${emp.getRole().toLowerCase()}">
+<h3>${emp.getName()}</h3><br>
+<h3>${emp.getRole()}</h3><br>
 <p>ID: ${emp.empID}</p><br>
-<p>Email: <a href="mailto:${emp.email}">${emp.email}</a></p><br>\n`;
+<p>Email: <a href="mailto:${emp.getEmail()}">${emp.getEmail()}</a></p><br>\n`;
 
-        switch (emp.constructor.name) {
+        switch (emp.getRole()) {
             case 'Manager':
-                generatedHTML += `<p>Office: ${emp.officeNum}</p>`;
+                generatedHTML += `<p>Office: ${emp.getOfficeNum()}</p>`;
                 break;
             case 'Engineer':
-                generatedHTML += `<p>GitHub: <a href="https://github.com/${emp.gitHubUsername}" target="_blank">${emp.gitHubUsername}</a></p>`;
+                generatedHTML += `<p>GitHub: <a href="https://github.com/${emp.getGitHub()}" target="_blank">${emp.getGitHub()}</a></p>`;
                 break;
             case 'Intern':
-                generatedHTML += `<p>School: ${emp.school}</p>`;
+                generatedHTML += `<p>School: ${emp.getSchool()}</p>`;
                 break;
         }
         generatedHTML += `</div>\n`;
